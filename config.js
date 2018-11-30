@@ -1,5 +1,6 @@
 exports.MONGO_URL = "mongodb://localhost:27017/SkillSharing";
 exports.PORT = 3000;
+exports.MAIL_PORT = 3001;
 exports.accessSecret = "111";
 exports.refreshSecret = "222";
 exports.expiresIn = 15;

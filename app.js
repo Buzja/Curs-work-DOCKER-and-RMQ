@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 const { MONGO_URL, PORT, mailQueue, errorQueue } = require("./config");
 const authRoutes = require("./api/auth/routes");
 const authorizationChecker = require("./midleware/authChecker");
-const mailService = require("./services/mailService");
-const errorService = require("./services/errorService");
-const amqp = require("./amqp");
+// const mailService = require("./services/mailService");
+// const errorService = require("./services/errorService");
+// const amqp = require("./amqp");
 
 const app = new Koa();
 let connection = null;
@@ -24,8 +24,8 @@ const startListening = async () => {
       .use(authorizationChecker)
       .use(mount("/auth", authRoutes));
 
-    await amqp.getFromQueue(errorQueue, errorService);
-    await amqp.getFromQueue(mailQueue, mailService);
+    // await amqp.getFromQueue(errorQueue, errorService);
+    // await amqp.getFromQueue(mailQueue, mailService);
 
     connection = await app.listen(PORT);
     console.log(`Server listening ${PORT}`);

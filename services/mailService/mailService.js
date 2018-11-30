@@ -1,12 +1,13 @@
 const nodemailer = require("nodemailer");
 const Promise = require("bluebird");
 const fs = Promise.promisifyAll(require("fs"));
-const { mailUser, mailPass, mailQueue, errorQueue } = require("../config");
+const { mailUser, mailPass, mailQueue, errorQueue } = require("../../config");
 const handlebars = Promise.promisifyAll(require("handlebars"));
 const {
   generateRefreshToken
-} = require("../api/auth/controllers/generateToken");
-const sendToQueue = require("../tasks/sendToQueueTask");
+} = require("../../api/auth/controllers/generateToken");
+
+const sendToQueue = require("../../tasks/sendToQueueTask");
 
 const mailService = async ({
   email,
